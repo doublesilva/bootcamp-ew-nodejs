@@ -1,0 +1,23 @@
+{
+  "name": "projeto-hero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.test.js",
+    "docker:up": "docker-compose -f multidb-heroes.yml up -d",
+    "docker:down": "docker-compose -f multidb-heroes.yml down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^7.2.0"
+  },
+  "dependencies": {
+    "mongoose": "^5.9.17",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.11"
+  }
+}

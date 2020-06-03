@@ -1,0 +1,41 @@
+version: '3.1'
+
+services:
+    mongodb:
+        image: mongo:4
+        container_name: mongodb
+        restart: always
+        ports:
+            - 27017:27017
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: senhaadmin
+        volumes:
+            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro     
+    mongoclient: 
+        image: mongoclient/mongoclient
+        container_name: mongoclient
+        links: 
+            - mongodb:mongodb
+        restart: always
+        ports:
+            - 3000:3000         
+       
+    postgres:
+        image: postgres
+        container_name: postgres        
+        restart: always
+        ports:
+            - 5432:5432  
+        environment:
+            POSTGRES_USER: doublesilva
+            POSTGRES_PASSWORD: lapro203 
+            POSTGRES_DB: heroes
+        
+    adminer:
+        image: adminer
+        container_name: adminer
+        ports:
+            - 3030:3030
+        links:
+            - postgres
