@@ -1,12 +1,12 @@
 const assert = require('assert');
 const Mongoose = require('mongoose');
-const MongoDb = require('./../src/bd/strategies/mongodb/mongodb.strategy');
-const HeroSchema = require('./../src/bd/strategies/mongodb/schema/hero.schema');
-const Context = require('./../src/bd/strategies/base/context.strategy');
+const MongoDb = require('./../bd/strategies/mongodb/mongodb.strategy');
+const HeroSchema = require('./../bd/strategies/mongodb/schema/hero.schema');
+const Context = require('./../bd/strategies/base/context.strategy');
 
 const MOCK_HEROI_CADASTRAR = {
-    nome: 'Gaviao Negro',
-    poder: 'flexas'
+    nome: 'Batman-' + new Date().getUTCMilliseconds(),
+    poder: 'Dinheiro'
 };
 
 const MOCK_HEROI_ATUALIZAR = {
