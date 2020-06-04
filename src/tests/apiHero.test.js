@@ -62,7 +62,7 @@ describe('Api Heroes Suite Tests', function () {
 
     it('listar /heroes deve filtrar por nome', async () => {
         const TAMANHO_LIMITE = 1000
-        const NAME = 'Batman798';
+        const NAME = MOCK_HERIO_INICIAL.nome;
         const result = await app.inject({
             method: 'GET',
             url: `/heroes?skip=0&limit=${TAMANHO_LIMITE}&nome=${NAME}`
