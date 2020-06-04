@@ -38,8 +38,8 @@ class MongoDb extends IDb{
         return await this._collection.create(entity);
     }
 
-    async read(entity = {}){
-        return await this._collection.find(entity, {nome: 1, poder: 1, insertedAt: 1});
+    async read(entity = {}, skip = 0, limit = 10){
+        return await this._collection.find(entity).skip(skip).limit(limit);
     }
 
     async update(id, entity){

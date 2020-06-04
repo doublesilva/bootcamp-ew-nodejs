@@ -18,8 +18,8 @@ class ContextStrategy extends IDb {
         return this._database.insert(entity);
     }
 
-    read(entity) {
-        return this._database.read(entity);
+    read(entity, skip = 0, limit = 10) {
+        return this._database.read(entity, skip, limit);
     }
 
     update(id, entity) {
