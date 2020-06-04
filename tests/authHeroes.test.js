@@ -1,7 +1,7 @@
 const assert = require('assert');
 const api = require('./../api')
-const ContextHelper = require('./../helpers/contextHelper')
-const UserSchema = require('./../bd/strategies/postgres/schema/userSchema')
+const ContextHelper = require('./../src/helpers/contextHelper')
+const UserSchema = require('./../src/bd/strategies/postgres/schema/userSchema')
 
 let app = {}
 let context = {};

@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/tests/*.test.js",
+    "test": "mocha tests/*.test.js",
     "docker:up": "docker-compose -f multidb-heroes.yml up -d",
-    "docker:down": "docker-compose -f multidb-heroes.yml down"
+    "docker:down": "docker-compose -f multidb-heroes.yml down",
+    "test:prod": "cross-env NODE_ENV=prod npm t",
+    "prod": "cross-env NODE_ENV=prod node api.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,7 @@
   "dependencies": {
     "bcrypt": "^4.0.1",
     "boom": "^7.3.0",
+    "dotenv": "^8.2.0",
     "hapi": "^18.1.0",
     "hapi-auth-jwt2": "^10.1.0",
     "hapi-swagger": "^9.1.3",

@@ -1,18 +1,31 @@
+const { config } = require('dotenv');
+const { join } = require('path');
+const { ok } = require('assert')
+const env = process.env.NODE_ENV || 'dev'
+ok(env === "prod" || env === "dev", 'a env é inválida, ou dev ou prod');
+
+const configPath = join(__dirname, './config', `.env.${env}`);
+
+config({
+    path: configPath
+});
+
+
 const Hapi = require('hapi');
 
-const HeroRoute = require('./routes/heroRoutes');
-const AuthRoute = require('./routes/authRoutes');
+const HeroRoute = require('./src/routes/heroRoutes');
+const AuthRoute = require('./src/routes/authRoutes');
 
-const UserSchemaPostgres = require('./bd/strategies/postgres/schema/userSchema')
-const HeroSchemaMongo = require('./bd/strategies/mongodb/schema/hero.schema')
-const HelperContext = require('./helpers/contextHelper');
+const UserSchemaPostgres = require('./src/bd/strategies/postgres/schema/userSchema');
+const HeroSchemaMongo = require('./src/bd/strategies/mongodb/schema/hero.schema');
+const HelperContext = require('./src/helpers/contextHelper');
 
 const HapiSwagger = require('hapi-swagger');
 const Vision = require('vision')
 const Inert = require('inert');
-const app = new Hapi.Server({ port: 5000 });
+const app = new Hapi.Server({ port: process.env.PORT });
 const HaipJwt = require('hapi-auth-jwt2');
-const JWT_SECRET = 'MEU_SEGREDO_';
+const JWT_SECRET = process.env.JWT_KEY;
 
 function mapRoutes(instance, methods) {
     return methods.map(method => instance[method]());
