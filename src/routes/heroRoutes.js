@@ -4,6 +4,10 @@ const BaseRoute = require('./base/baseRoute');
 const failAction = (request, headers, erro) => {
     throw erro;
 }; 
+const headers = Joi.object({
+    authorization: Joi.string().required()
+}).unknown();
+
 class HeroRoutes extends BaseRoute {
     constructor(db) {
         super();
@@ -18,7 +22,8 @@ class HeroRoutes extends BaseRoute {
                 description: 'Deve listar heróis',
                 notes: 'Pode paginar resultados e filtrar por nome',
                 validate:{
-                    failAction,
+                    headers,
+                    failAction,                    
                     query:{
                         skip: Joi.number().integer().default(0),
                         limit: Joi.number().integer().default(10),
@@ -49,11 +54,13 @@ class HeroRoutes extends BaseRoute {
                 description: 'Deve cadastrar heróis',
                 notes: 'Deve cadastrar herói por nome e poder',
                 validate: {
+                    headers,
                     failAction,
                     payload: {
                         nome: Joi.string().required().min(3).max(100),
                         poder: Joi.string().required().min(2).max(100)
                     }
+                    
                 },
                 handler: async (request) => {
                     try {
@@ -82,6 +89,7 @@ class HeroRoutes extends BaseRoute {
                 description: 'Deve atualizar herói por id',
                 notes: 'Pode atualizar qualquer campo',
                 validate:{
+                    headers,
                     failAction,
                     params: {
                         id: Joi.string().required()
@@ -125,6 +133,7 @@ class HeroRoutes extends BaseRoute {
                 description: 'Deve remover herói por id',
                 notes: 'O id tem que ser valido.',
                 validate:{
+                    headers,
                     failAction,
                     params: {
                         id: Joi.string().required()
