@@ -55,8 +55,9 @@ class PostgresSqlStrategy extends IDb {
         })
     }
 
-    update(id, entity) {
-        return this._db.update(entity, { where:{ id } });
+    update(id, entity, upsert = false) {
+        const fn = upsert ? 'upsert' : 'update';
+        return this._db[fn](entity, { where:{ id } });
     }
 
     delete(id) {
