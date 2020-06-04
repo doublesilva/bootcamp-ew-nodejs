@@ -1,7 +1,7 @@
 const assert = require('assert');
-const PostgresSql = require('../src/bd/strategies/postgres/postgresSqlStrategy');
-const HeroSchema = require('../src/bd/strategies/postgres/schema/heroSchema');
-const Context = require('../src/bd/strategies/base/context.strategy');
+const PostgresSql = require('../bd/strategies/postgres/postgresSqlStrategy');
+const HeroSchema = require('../bd/strategies/postgres/schema/heroSchema');
+const Context = require('../bd/strategies/base/context.strategy');
 const MOCK_HEROI_CADASTRAR = { nome: 'Gaviao Negro', poder: 'flexas' };
 const MOCK_HEROI_ATUALIZAR = { nome: 'Mulher Gavião', poder: 'grito' };
 
