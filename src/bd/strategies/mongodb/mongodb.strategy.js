@@ -16,7 +16,8 @@ class MongoDb extends IDb{
     }
 
     static connect(){
-        Mongoose.connect('mongodb://doublesilva:lapro203@localhost:27017/heroes', {
+        console.log(process.env.MONGODB_URL);
+        Mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true, useUnifiedTopology: true
         });
 

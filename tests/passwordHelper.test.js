@@ -1,6 +1,6 @@
 
 const assert = require('assert')
-const PasswordHelper = require('./../helpers/passwordHelper')
+const PasswordHelper = require('./../src/helpers/passwordHelper')
 const SENHA = 'eicke@987'
 const HASH = '$2b$04$XxtZ1qk65.pITab9JpUTN.JeJ/17mtcwkxQRyhhhM1uVLUqfOv./S'
 describe('User Helper Test Suit', function() {
