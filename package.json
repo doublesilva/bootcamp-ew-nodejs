@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --timeout 10000 tests/*.test.js",
+    "decrypt": "./decrypt_secret.sh",
     "docker:up": "docker-compose -f multidb-heroes.yml -p projeto-hero up -d",
     "docker:down": "docker-compose -f multidb-heroes.yml -p projeto-hero down",
     "test:prod": "cross-env NODE_ENV=prod npm t",
