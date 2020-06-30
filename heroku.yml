@@ -1,6 +1,0 @@
-release:
-    command:
-      - ./decrypt_secret.sh
-    image: worker
-run:
-    web: npm run prod
