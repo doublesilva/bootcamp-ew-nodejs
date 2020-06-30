@@ -10,6 +10,8 @@ config({
     path: configPath
 });
 
+console.log('port-app', process.env.PORT);
+
 
 const Hapi = require('hapi');
 
