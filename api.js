@@ -25,7 +25,7 @@ const HelperContext = require('./src/helpers/contextHelper');
 const HapiSwagger = require('hapi-swagger');
 const Vision = require('vision')
 const Inert = require('inert');
-const app = new Hapi.Server({ port: process.env.PORT });
+const app = new Hapi.Server({ port: process.env.PORT, labels: ['api'] });
 const HaipJwt = require('hapi-auth-jwt2');
 const JWT_SECRET = process.env.JWT_KEY;
 
