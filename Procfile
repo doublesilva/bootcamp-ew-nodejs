@@ -1,1 +1,1 @@
-web: chmod u+x decrypt_secret.sh && ./decrypt_secret.sh && npm run prod
+web: npm run decrypt:files && npm run prod
