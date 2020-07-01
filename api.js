@@ -70,7 +70,9 @@ async function Main() {
         ...mapRoutes(new HeroRoute(HelperContext.ContextMongoDb(HeroSchemaMongo)), HeroRoute.methods()),
         ...mapRoutes(new AuthRoute(JWT_SECRET, (await HelperContext.ContextPostgress(UserSchemaPostgres))), AuthRoute.methods())
     ]);
-    await app.start();
+    await app.start()
+    console.log('server running at', app.info.port)
+
     return app;
 }
 
