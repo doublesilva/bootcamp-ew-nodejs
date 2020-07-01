@@ -25,7 +25,7 @@ const HelperContext = require('./src/helpers/contextHelper');
 const HapiSwagger = require('hapi-swagger');
 const Vision = require('vision')
 const Inert = require('inert');
-const app = new Hapi.Server({ port: process.env.PORT, labels: ['api'] });
+const app = new Hapi.Server({ port: process.env.PORT });
 const HaipJwt = require('hapi-auth-jwt2');
 const JWT_SECRET = process.env.JWT_KEY;
 
@@ -36,9 +36,15 @@ function mapRoutes(instance, methods) {
 async function Main() {
 
     const swaggerOtions = {
+        documentationPath: '/',
         info: {
-            title: 'API Heroes - #CursoNodeBR',
-            version: 'v1.0'
+            title: 'API Heroes - #CursoNodeBR',            
+            version: 'v1.0',
+            contact: {
+              name: 'Diego Silva',
+              email: 'silva.pucrs@gmail.com',
+              url: 'https://github.com/doublesilva/'
+            },
         },
         lang: 'pt'
     }

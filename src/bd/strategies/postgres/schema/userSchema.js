@@ -24,7 +24,7 @@ const UserSchema =  {
         }
     },
     options: {
-        tableName: 'User',
+        tableName: 'tbUser',
         freezeTableName: false,
         timestamps: false
     }

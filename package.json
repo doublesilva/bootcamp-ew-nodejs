@@ -2,18 +2,18 @@
   "name": "projeto-hero",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
     "test": "mocha --timeout 10000 tests/*.test.js",
     "encrypt:files": "gpg --symmetric --cipher-algo AES256 config/.env.dev && gpg --symmetric --cipher-algo AES256 config/.env.prod",
     "decrypt:files": "chmod u+x decrypt_secret.sh && ./decrypt_secret.sh",
     "docker:up": "docker-compose -f multidb-heroes.yml -p projeto-hero up -d",
     "docker:down": "docker-compose -f multidb-heroes.yml -p projeto-hero down",
-    "test:prod": "cross-env NODE_ENV=prod npm t",
+    "desenv": "cross-env NODE_ENV=prod node api.js",
     "prod": "cross-env NODE_ENV=prod node api.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Diego Silva",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^7.2.0"
