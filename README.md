@@ -1,7 +1,7 @@
 <h1 align="center">Heroes Api - #CursoNodeBR</h1>
 
 <h1>
-  <img src="https://ik.imagekit.io/doublesilva/app_heroes_2_zKxBBbXnJ.gif">
+  <img src="app_heroes.gif">
 </h1>
 <h3 align="center">
   <a href="https://heroesproject-doublesilva.herokuapp.com/">Acesse a aplicação</a>
