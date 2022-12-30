@@ -16,7 +16,7 @@
   "author": "Diego Silva",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^7.2.0"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "cross-env": "^7.0.2",
